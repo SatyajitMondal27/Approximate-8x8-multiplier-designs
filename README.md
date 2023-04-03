@@ -14,3 +14,23 @@ Design 4 is an 8x8 multiplier using only approximate 4x4 multiplier.\
 |   2   |||||||  60.03 |\
 |   3   |||||||  47.33 |\
 |   4   |||||||  39.70 |\
+
+In the 4x4 approximate multipliers we use the stage two and stage 3 4:2 compressors to calculation the stage 2 and stage 3 sum of partial products during multiplication.
+In accurate multipliers XOR gates comsume more power and provide larger delays when compared to AND and OR gates.\
+Hence the motive of creating this approximate multiplier is to remove the use of XOR gates and compensate for accurcay with higher power and speed.\
+
+In the stage 2 4:2 compressor the inputs to the 4:2 compressor are encoded as\
+Pi,j= pi,j + pj,i;\
+Gi,j = pi,j * pj,i;\
+Then we calculate the approximate sum = (x1+x2)+(x3+x4)\
+and approximate carry = (x1.x2)+(x3.x4)\
+
+In the stage 3 4:2 compressor the inputs to the 4:2 compressor are encoded as\ x1=c2(carry from stage 2)
+x2=G3,0 + G2,1
+x3=P2,1
+x4=P3,0
+
+References- The following work has been done with reference to Mohammad Saeed Ansari, Honglan Jiang, Bruce F. Cockburn, Jie Han, Low-Power Approximate Multipliers Using Encoded Partial Products and Approximate Compressors.
+
+
+
