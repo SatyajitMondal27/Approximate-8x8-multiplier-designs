@@ -1,4 +1,4 @@
-module design3(input [7:0]a,[7:0]b,output [15:0]r);
+module design4(input [7:0]a,[7:0]b,output [15:0]r);
 wire [3:0]al,ah,bl,bh;
 assign al[3:0]=a[3:0];
 assign ah[3:0]=a[7:4];
@@ -8,7 +8,7 @@ wire [7:0]p1,p2,p3,p4;
 fourxfourmultiplier inst1(al,bl,p1);
 fourxfourmultiplier inst2(ah,bl,p2);
 fourxfourmultiplier inst3(al,bh,p3);
-wtm4bit inst4(ah,bh,p4);
+fourxfourmultiplier inst4(ah,bh,p4);
 assign r[0]=p1[0];
 assign r[1]=p1[1];
 assign r[2]=p1[2];
